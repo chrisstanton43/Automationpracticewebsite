@@ -1,8 +1,5 @@
-package step_definitions;
+package pageobjects;
 
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,46 +7,41 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageobjects.Pages;
 
-import javax.security.auth.callback.TextInputCallback;
-import java.sql.Time;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class StepDefs extends Pages{
 
-    WebDriver driver = new FirefoxDriver();
+public class HomePOM {
 
-    @Given("^I am on automationpractice website$")
-    public void i_am_on_automationpractice_website() throws Throwable {
+    public static WebDriver driver=new FirefoxDriver();
 
-        Pages.getHomePage();
+    public  static void getHomePage(){
+        driver.get("http://automationpractice.com");
     }
 
-    @When("^I click on SignIn link$")
-    public void i_click_on_SignIn_link() throws Throwable {
-
-        Pages.clickOnSignIn();
-    }
-
-    @When("^I enter the email address$")
-    public void i_enter_the_email_address() throws Throwable {
-
-        Pages.enterEmailId();
-    }
-
-    @Then("^I click on create an account button$")
-    public void i_click_on_create_an_account_button() throws Throwable {
-
-        driver.findElement(By.xpath(".//*[@id='SubmitCreate']")).click();
+    public static void clickOnSignIn(){
+        driver.findElement(By.linkText("Sign in")).click();
 
     }
 
-    @Then("^I fill \"(.*?)\" \"(.*?)\" \"(.*?)\" \"(.*?)\" \"(.*?)\"$")
-    public void i_fill( String title,String firstname, String lastname, String password, String dateofbirth) throws Throwable {
+    public static void enterEmailId(){
+        driver.findElement(By.xpath(".//*[@id='email_create']")).sendKeys("chris.stanton43@gmail.com");
 
+    }
+    public static  void setPassword(){
+        driver.findElement(By.xpath(".//*[@id='passwd']")).sendKeys("as543539");
+    }
+    public static void SignOut(){
 
+        driver.findElement(By.xpath(".//*[@id='header']/div[2]/div/div/nav/div[2]/a")).click();
+    }
+
+    public static void ContactUs(){
+
+        driver.findElement(By.xpath(".//*[@id='block_various_links_footer']/ul/li[5]/a")).click();
+
+    }
+    public static void DataTableValues(String title,String firstname, String lastname, String password, String dateofbirth,String address, String city, String state, String postcode, String mobilenumber){
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.findElement(By.id("id_gender1")).click();
         WebElement myDynamicElement = (new WebDriverWait(driver, 10))
@@ -63,12 +55,6 @@ public class StepDefs extends Pages{
         driver.findElement(By.xpath(".//*[@id='firstname']")).sendKeys(firstname);
         driver.findElement(By.xpath(".//*[@id='lastname']")).clear();
         driver.findElement(By.xpath(".//*[@id='lastname']")).sendKeys(lastname);
-
-    }
-
-    @Then("^I fill \"(.*?)\" \"(.*?)\" \"(.*?)\" \"(.*?)\" and \"(.*?)\"$")
-    public void i_fill_and( String address, String city, String state, String postcode, String mobilenumber) throws Throwable {
-
         driver.findElement(By.xpath(".//*[@id='address1']")).sendKeys(address);
         driver.findElement(By.xpath(".//*[@id='city']")).sendKeys(city);
         Select state_select = new Select(driver.findElement(By.xpath(".//*[@id='id_state']")));
@@ -77,13 +63,13 @@ public class StepDefs extends Pages{
         driver.findElement(By.xpath(".//*[@id='phone_mobile']")).sendKeys(mobilenumber);
     }
 
-    @Then("^I hit Register button$")
-    public void i_hit_Register_button() throws Throwable {
+    public static void clickOnCreateButton(){
 
-        driver.findElement(By.xpath(".//*[@id='submitAccount']")).click();
-
+        driver.findElement(By.xpath(".//*[@id='SubmitCreate']")).click();
     }
 
-
+    public static void ClickOnRegisterButton(){
+        driver.findElement(By.xpath(".//*[@id='submitAccount']")).click();
+    }
 
 }

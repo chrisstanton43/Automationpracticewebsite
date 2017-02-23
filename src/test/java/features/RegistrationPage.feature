@@ -7,8 +7,7 @@ Feature: Shopping cart on an e-commerce website
     When I click on SignIn link
     Then I enter the email address
     Then I click on create an account button
-    And I fill "<title>" "<firstname>" "<lastname>" "<password>" "<dateofbirth>"
-    And I fill "<address>" "<city>" "<state>" "<postcode>" and "<mobilephone>"
+    And I fill "<title>" "<firstname>" "<lastname>" "<password>" "<dateofbirth>" "<address>" "<city>" "<state>" "<postcode>" and "<mobilephone>"
     And I hit Register button
     Examples:
       | title | firstname | lastname | password | dateofbirth | address        | city      | state   | postcode | mobilephone |
