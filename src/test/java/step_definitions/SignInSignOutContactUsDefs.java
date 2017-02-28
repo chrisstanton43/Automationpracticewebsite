@@ -3,14 +3,13 @@ package step_definitions;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pageobjects.HomePOM;
-import pageobjects.SignInSignOutContactUsPOM;
 
 import java.util.concurrent.TimeUnit;
 
 import static pageobjects.HomePOM.driver;
 
 
-public class SignInSignOutContactUsDefs extends SignInSignOutContactUsPOM {
+public class SignInSignOutContactUsDefs extends HomePOM {
 
     @When("^I click on sign in link$")
     public void i_click_on_sign_in_link() throws Throwable {
@@ -39,7 +38,6 @@ public class SignInSignOutContactUsDefs extends SignInSignOutContactUsPOM {
     @Then("^I perform contact us actions$")
     public void i_perform_contact_us_actions() throws Throwable {
         HomePOM.ContactUs();
-
 
     }
 }

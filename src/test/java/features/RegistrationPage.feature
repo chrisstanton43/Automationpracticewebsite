@@ -1,4 +1,4 @@
-@wip
+
 Feature: Shopping cart on an e-commerce website
 
   Scenario Outline: Customer Registration
