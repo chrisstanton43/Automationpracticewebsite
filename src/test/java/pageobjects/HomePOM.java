@@ -15,6 +15,14 @@ public class HomePOM {
 
     public static WebDriver driver=new FirefoxDriver();
 
+    public static void windowMaximize(){
+        driver.manage().window().maximize();
+    }
+
+    public static void implicitWait(){
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    }
+
     public  static void getHomePage(){
         driver.get("http://automationpractice.com");
     }

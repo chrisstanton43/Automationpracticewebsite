@@ -15,7 +15,7 @@ public class SignInSignOutContactUsDefs extends HomePOM {
     public void i_click_on_sign_in_link() throws Throwable {
 
         HomePOM.clickOnSignIn();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        HomePOM.implicitWait();
     }
     @When("^I enter the email address and password$")
     public void i_enter_the_email_address_and_password() throws Throwable {
