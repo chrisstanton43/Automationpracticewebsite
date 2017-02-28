@@ -16,6 +16,7 @@ public class HomePageStepDefs extends HomePOM {
     public void i_am_on_automationpractice_website() throws Throwable {
 
         HomePOM.getHomePage();
+        HomePOM.windowMaximize();
     }
 
     @When("^I click on SignIn link$")
@@ -34,7 +35,7 @@ public class HomePageStepDefs extends HomePOM {
     public void i_click_on_create_an_account_button() throws Throwable {
 
         HomePageStepDefs.clickOnCreateButton();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        HomePageStepDefs.implicitWait();
 
     }
 
