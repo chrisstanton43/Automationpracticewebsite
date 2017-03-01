@@ -1,5 +1,6 @@
 package pageobjects;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -92,5 +93,113 @@ public class HomePOM {
 //
 //        driver.findElement(By.linkText(".//*[@id='header']/div[2]/div/div/nav/div[2]/a")).click();
 //    }
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>    Methods for PageLogo StepDefs  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+public static void verifyPageLogo(){
+    boolean ImageStatus = driver.findElement(By.xpath(".//*[@id='header_logo']/a/img")).isDisplayed();
+    System.out.println(ImageStatus);
+    String ImageTitle = driver.findElement(By.xpath(".//*[@id='header_logo']/a/img")).getAttribute("title");
+    System.out.println(ImageTitle);
+}
+
+public static void verifyHomePageTitle(){
+    String expTitle = "My Store";
+    String actTitle = driver.getTitle();
+    Assert.assertEquals(actTitle,expTitle);
+    System.out.println("the Title of Home page is: "+actTitle);
+
+}
+
+//  >>>>>>>>>>>>>> Methods for Information Step defs <<<<<<<<<<<<<<<<<<<<<<<<
+
+    public static void clickOnSpecials(){
+        driver.findElement(By.xpath(".//*[@id='block_various_links_footer']/ul/li[1]/a")).click();
+    }
+    public static void specialspage(){
+        String expTitle = "Prices drop - My Store";
+        String actTitle = driver.getTitle();
+        Assert.assertEquals(actTitle,expTitle);
+        System.out.println("the Title of specials page is: "+actTitle);
+    }
+
+    public static void clickOnNewProduct(){
+        driver.findElement(By.xpath(".//*[@id='block_various_links_footer']/ul/li[2]/a")).click();
+    }
+    public static void newProductspage(){
+        String expTitle = "New products - My Store";
+        String actTitle = driver.getTitle();
+        Assert.assertEquals(actTitle,expTitle);
+        System.out.println("the Title of New products page is: "+actTitle);
+    }
+
+    public static void clickOnBestSeller(){
+        driver.findElement(By.xpath(".//*[@id='block_various_links_footer']/ul/li[3]/a")).click();
+    }
+    public static void bestSellerspage(){
+        String expTitle = "Best sales - My Store";
+        String actTitle = driver.getTitle();
+        Assert.assertEquals(actTitle,expTitle);
+        System.out.println("the Title of Best seller page is: "+actTitle);
+    }
+
+    public static void clickOnOurStores(){
+        driver.findElement(By.xpath(".//*[@id='block_various_links_footer']/ul/li[4]/a")).click();
+    }
+    public static void outStorespage(){
+        String expTitle = "Stores - My Store";
+        String actTitle = driver.getTitle();
+        Assert.assertEquals(actTitle,expTitle);
+        System.out.println("the Title of Our stores page is: "+actTitle);
+    }
+    public static void clickOnContactUs(){
+        driver.findElement(By.xpath(".//*[@id='block_various_links_footer']/ul/li[5]/a")).click();
+    }
+
+    public static void contactUspage(){
+        String expTitle = "Contact us - My Store";
+        String actTitle = driver.getTitle();
+        Assert.assertEquals(actTitle,expTitle);
+        System.out.println("the Title of Contact page is: "+actTitle);
+    }
+    public static void clickOnTerms(){
+        driver.findElement(By.xpath(".//*[@id='block_various_links_footer']/ul/li[6]/a")).click();
+    }
+
+    public static void termspage(){
+        String expTitle = "Terms and conditions of use - My Store";
+        String actTitle = driver.getTitle();
+        Assert.assertEquals(actTitle,expTitle);
+        System.out.println("the Title of Terms page is: "+actTitle);
+    }
+
+    public static void clickOnAboutUs(){
+        driver.findElement(By.xpath(".//*[@id='block_various_links_footer']/ul/li[7]/a")).click();
+    }
+    public static void aboutUspage(){
+        String expTitle = "About us - My Store";
+        String actTitle = driver.getTitle();
+        Assert.assertEquals(actTitle,expTitle);
+        System.out.println("the Title of About page is: "+actTitle);
+    }
+
+    public static void clickOnSitemap(){
+        driver.findElement(By.xpath(".//*[@id='block_various_links_footer']/ul/li[8]/a")).click();
+    }
+    public static void sitemappage(){
+        String expTitle = "Sitemap - My Store";
+        String actTitle = driver.getTitle();
+        Assert.assertEquals(actTitle,expTitle);
+        System.out.println("the Title of Sitemap page is: "+actTitle);
+    }
+
+
+
+//>>>>>>>>>>>>>>>>> Method for closing browser <<<<<<<<<<<<<<<<<<<<<<<
+
+    public static void browserClose(){
+    driver.close();
+    }
 
 }
