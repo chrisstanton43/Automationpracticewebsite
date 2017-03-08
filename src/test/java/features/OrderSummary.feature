@@ -1,4 +1,4 @@
-@wip
+
 Feature: Order Summary
   Scenario: Verify order Summary page and proceed
     Given I am on automationpractice website
